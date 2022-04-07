@@ -1,0 +1,28 @@
+{
+  "name": "steven_full-stack_repo",
+  "version": "1.0.0",
+  "description": "Full stack project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://StevenLUT@bitbucket.org/stevenlut/steven_full-stack_repo.git"
+  },
+  "author": "Steven Gobet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/stevenlut/steven_full-stack_repo/issues"
+  },
+  "homepage": "https://bitbucket.org/stevenlut/steven_full-stack_repo#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "heroku": "^7.60.1",
+    "uuid": "^8.3.2"
+  }
+}
