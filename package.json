@@ -19,6 +19,7 @@
   "homepage": "https://github.com/StevenINSA/Steven_Full-Stack_Repo#readme",
   "dependencies": {
     "express": "^4.18.0",
+    "express-handlebars": "^6.0.5",
     "moment": "^2.29.3",
     "uuid": "^8.3.2"
   }

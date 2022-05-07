@@ -1,7 +1,8 @@
 const express = require('express'); 
-const res = require('express/lib/response');
+const exphbs = require('express-handlebars');
 const path = require('path');
 const logger = require('./middleware/logger');
+
 
 const app = express(); //Initialize express
 
@@ -11,6 +12,13 @@ app.use(logger); //see logger.js
 //Body parser middleware
 app.use(express.json());    //will handle raw JSON
 app.use(express.urlencoded({ extended: false}));
+
+//Handlebars middleware 
+//app.engine('handlebars', engine({defaultLayout: 'main'}));
+//app.engine('handlebars', exphbs({ defaultLayout: 'main' }));  //We setup our template engine to Handlebars and setting the default laying to the file name
+//app.set('view engine', 'handlebars');      //Setting the view engine.
+
+app.get('/', (req, res) => res.render('index'));
 
 app.get('/', (req, res) => {
     //to send from scratch
