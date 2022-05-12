@@ -29,7 +29,7 @@ module.exports.getUserById = function(id, callback){
 };
 
 //Get the user by username
-module.exports.getUserById = function(id, callback){
+module.exports.getUserByUsername = function(username, callback){
     const query = {username: username};
     User.findOne(query, callback);
 };
@@ -43,4 +43,12 @@ module.exports.addUser = function(newUser, callback){
             newUser.save(callback);     //and save it
         });
     });    
+};
+
+//Function for compare password to authenticate
+module.exports.comparePassword = function(candidatePassword, hashPassword, callback){
+    bcrypt.compare(candidatePassword, hashPassword, (err, isMatch)=> {
+        if(err) throw err;
+        callback(null, isMatch);
+    });
 };
