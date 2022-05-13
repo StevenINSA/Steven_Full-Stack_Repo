@@ -1,17 +1,31 @@
 # Steven_Full-Stack_Repo
 
-Hello,
+Version used:
 
-Welcome to my Full Stack repository for the Full Stack course at LUT University. The course is divided into 5 sections: 
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
 
-  - NodeJS
-  - MongoDB
-  - ExpressJS
-  - Angular
-  - MEAN-stack
+Angular CLI: 13.3.5
+Node: 16.15.0
+Package Manager: npm 8.5.5
+OS: darwin x64
 
-I created 4 branches accordingly to the course (MongoDB course only required some Terminal work). Thereby, you can check 
-all the exercices completed by navigating through the branches. I moreover created a branch dedicated to the final MEAN-stack 
-project, named MEAN_Project. 
+Angular: 13.3.7
+... animations, common, compiler, compiler-cli, core, forms
+... platform-browser, platform-browser-dynamic, router
 
-Have a nice day!
+Package                         Version
+---------------------------------------------------------
+@angular-devkit/architect       0.1303.5
+@angular-devkit/build-angular   13.3.5
+@angular-devkit/core            13.3.5
+@angular-devkit/schematics      13.3.5
+@angular/cli                    13.3.5
+@schematics/angular             13.3.5
+rxjs                            7.5.5
+typescript                      4.6.4
