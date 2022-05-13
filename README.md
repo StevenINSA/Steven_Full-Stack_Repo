@@ -1,7 +1,6 @@
 # Steven_Full-Stack_Repo
 
 Version used:
-
 Angular CLI: 13.3.5
 Node: 16.15.0
 Package Manager: npm 8.5.5
