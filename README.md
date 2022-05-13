@@ -9,11 +9,11 @@ Version used:
 
 - Angular: 13.3.7
 
-- @angular-devkit/architect       0.1303.5
-- @angular-devkit/build-angular   13.3.5
-- @angular-devkit/core            13.3.5
-- @angular-devkit/schematics      13.3.5
-- @angular/cli                    13.3.5
-- @schematics/angular             13.3.5
-- rxjs                            7.5.5
-- typescript                      4.6.4
+- @angular-devkit/architect:      0.1303.5
+- @angular-devkit/build-angular:  13.3.5
+- @angular-devkit/core:           13.3.5
+- @angular-devkit/schematics:     13.3.5
+- @angular/cli:                   13.3.5
+- @schematics/angular:            13.3.5
+- rxjs:                           7.5.5
+- typescript:                     4.6.4
