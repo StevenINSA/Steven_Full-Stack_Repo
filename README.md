@@ -8,11 +8,7 @@ Package Manager: npm 8.5.5
 OS: darwin x64
 
 Angular: 13.3.7
-... animations, common, compiler, compiler-cli, core, forms
-... platform-browser, platform-browser-dynamic, router
 
-Package                         Version
----------------------------------------------------------
 @angular-devkit/architect       0.1303.5
 @angular-devkit/build-angular   13.3.5
 @angular-devkit/core            13.3.5
