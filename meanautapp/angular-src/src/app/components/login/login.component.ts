@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   username: String;
   password: String;
-  dataRegister: any;
+  dataLogin: any;
 
   constructor(private _flashMessagesService: FlashMessagesService,
     private authService: AuthService,
@@ -27,13 +27,13 @@ export class LoginComponent implements OnInit {
     }
     this.authService.authenticateUser(user).subscribe(data => {
       console.log(data);
-      this.dataRegister = data;
-      if(this.dataRegister.success){
-        this.authService.storeUserData(this.dataRegister.token, this.dataRegister.user)
+      this.dataLogin = data;
+      if(this.dataLogin.success){
+        this.authService.storeUserData(this.dataLogin.token, this.dataLogin.user)
         this._flashMessagesService.show('Welcom back champ', {cssClass: 'alert-success', timeout: 6000});
         this.router.navigate(['/dashboard']);
       } else {
-        this._flashMessagesService.show(this.dataRegister.msg, {cssClass: 'alert-danger', timeout: 6000});
+        this._flashMessagesService.show(this.dataLogin.msg, {cssClass: 'alert-danger', timeout: 6000});
         this.router.navigate(['/login']);
       }
     });

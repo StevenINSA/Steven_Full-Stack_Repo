@@ -51,7 +51,7 @@ router.post('/authenticate', (req, res, next) => {
                 });
                 res.json({
                     success: true,
-                    token: ' JWT '+token,
+                    token: 'JWT '+token,
                     user: {
                         id: user._id, 
                         name: user.name,
@@ -67,7 +67,7 @@ router.post('/authenticate', (req, res, next) => {
 });
 
 //Profile route
-router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {     //To protoect /profile route
+router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res) => {     //To protoect /profile route
     res.json({user: req.user});
 });
 
