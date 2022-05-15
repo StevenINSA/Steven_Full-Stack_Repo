@@ -49,7 +49,6 @@ export class RegisterComponent implements OnInit {
 
     // Register user
     this.authService.registerUser(user).subscribe(data => {
-      console.log(data);
       this.dataRegister = data;
 
       if(this.dataRegister.success){
