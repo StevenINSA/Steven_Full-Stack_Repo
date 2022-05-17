@@ -5,7 +5,6 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
-const { addListener } = require('../models/user');
 const config = require('../config/database');
 
 const router = express.Router();
@@ -20,7 +19,7 @@ router.post('/register', (req, res, next) => {   //as we are in the folder users
         password: req.body.password
     });
 
-    // Call the function Add user from /models/user (store in the database?)
+    // Call the function Add user from /models/user
     User.addUser(newUser, (err, user) => {
         if(err){
             res.json({sucess: false, msg: 'Failed to register'});
@@ -67,7 +66,7 @@ router.post('/authenticate', (req, res, next) => {
 });
 
 //Profile route
-router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res) => {     //To protoect /profile route
+router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {     //To protect /profile route
     res.json({user: req.user});
 });
 

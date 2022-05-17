@@ -11,14 +11,14 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
-  registerUser(user){
+  registerUser(user: { name: any; email: any; username: any; password: any; }){
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/users/register', user, { headers });
     //return this.http.post('http://localhost:3000/users/register', user, {headers: headers}).pipe(map((res: any) => res.json));
   }
 
-  authenticateUser(user){
+  authenticateUser(user: { username: any; password: any; }){
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/users/authenticate', user, { headers }); //If it's successful, it will return a token to the user
@@ -30,8 +30,9 @@ export class AuthService {
       'Content-Type': 'application/json',
       'Authorization': this.authToken
     });
-    
-    return this.http.get('http://localhost:3000/users/profile', { headers });
+    console.log(headers);
+    console.log(this.authToken);
+    return this.http.get('http://localhost:3000/users/profile', { headers:headers });
   }
 
   storeUserData(token: any, user: any){
