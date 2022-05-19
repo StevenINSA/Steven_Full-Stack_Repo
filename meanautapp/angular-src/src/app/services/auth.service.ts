@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from "rxjs/operators";
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +31,8 @@ export class AuthService {
       'Content-Type': 'application/json',
       'Authorization': this.authToken
     });
-    console.log(headers);
-    console.log(this.authToken);
+    // console.log(headers);
+    // console.log(this.authToken);
     return this.http.get('http://localhost:3000/users/profile', { headers:headers });
   }
 
@@ -51,5 +52,12 @@ export class AuthService {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
+  }
+
+  //Tell if we are logged in or not
+  loggedIn(){
+    this.loadToken();
+    const helper = new JwtHelperService();
+    return !helper.isTokenExpired(this.authToken); //!False, so True if Token is good, !True, so False if not good
   }
 }

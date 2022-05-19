@@ -4,6 +4,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -15,13 +16,14 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guards';
 
 const appRoutes: Routes = [   //All our routes
   { path: '', component: HomeComponent},  //Home page
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard] }
 ]
 
 @NgModule({
@@ -41,12 +43,14 @@ const appRoutes: Routes = [   //All our routes
     RouterModule.forRoot(appRoutes),
     FormsModule,
     FlashMessagesModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    JwtModule
   ],
   //Imports services
   providers: [  
     ValidateService,
-    AuthService
+    AuthService,
+    AuthGuard
   ], 
   bootstrap: [AppComponent]
 })
