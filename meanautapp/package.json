@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "start": "nodemon app",
+    "deployheroku": "cd ../ && git subtree push --prefix meanautapp/ tranquil-wildwood-98457 MEAN_course || true"
   },
   "dependencies": {
     "angular2-flash-messages": "^1.0.8",

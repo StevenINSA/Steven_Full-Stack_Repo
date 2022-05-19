@@ -15,14 +15,16 @@ export class AuthService {
   registerUser(user: { name: any; email: any; username: any; password: any; }){
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/register', user, { headers });
+    return this.http.post('users/register', user, { headers });
+    //return this.http.post('http://localhost:3000/users/register', user, { headers });
     //return this.http.post('http://localhost:3000/users/register', user, {headers: headers}).pipe(map((res: any) => res.json));
   }
 
   authenticateUser(user: { username: any; password: any; }){
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/authenticate', user, { headers }); //If it's successful, it will return a token to the user
+    return this.http.post('users/authenticate', user, { headers });
+    //return this.http.post('http://localhost:3000/users/authenticate', user, { headers }); //If it's successful, it will return a token to the user
   }
 
   getProfile() {
@@ -31,9 +33,8 @@ export class AuthService {
       'Content-Type': 'application/json',
       'Authorization': this.authToken
     });
-    // console.log(headers);
-    // console.log(this.authToken);
-    return this.http.get('http://localhost:3000/users/profile', { headers:headers });
+    return this.http.get('users/profile', { headers:headers });
+    //return this.http.get('http://localhost:3000/users/profile', { headers:headers });
   }
 
   storeUserData(token: any, user: any){
