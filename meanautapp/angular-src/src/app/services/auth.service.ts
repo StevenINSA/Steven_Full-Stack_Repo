@@ -15,16 +15,16 @@ export class AuthService {
   registerUser(user: { name: any; email: any; username: any; password: any; }){
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('users/register', user, { headers });
-    //return this.http.post('http://localhost:3000/users/register', user, { headers });
+    //return this.http.post('users/register', user, { headers });
+    return this.http.post('http://localhost:3000/users/register', user, { headers });
     //return this.http.post('http://localhost:3000/users/register', user, {headers: headers}).pipe(map((res: any) => res.json));
   }
 
   authenticateUser(user: { username: any; password: any; }){
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('users/authenticate', user, { headers });
-    //return this.http.post('http://localhost:3000/users/authenticate', user, { headers }); //If it's successful, it will return a token to the user
+    //return this.http.post('users/authenticate', user, { headers });
+    return this.http.post('http://localhost:3000/users/authenticate', user, { headers }); //If it's successful, it will return a token to the user
   }
 
   getProfile() {
@@ -33,13 +33,24 @@ export class AuthService {
       'Content-Type': 'application/json',
       'Authorization': this.authToken
     });
-    return this.http.get('users/profile', { headers:headers });
-    //return this.http.get('http://localhost:3000/users/profile', { headers:headers });
+    //return this.http.get('users/profile', { headers:headers });
+    return this.http.get('http://localhost:3000/users/profile', { headers:headers });
+  }
+
+   //Change password
+   changePassword(user){
+    this.loadToken();
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.authToken
+    });
+    return this.http.put('http://localhost:3000/users/password', user, { headers });
   }
 
   storeUserData(token: any, user: any){
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('username', user.username);
     this.authToken = token;
     this.user = user;
   }

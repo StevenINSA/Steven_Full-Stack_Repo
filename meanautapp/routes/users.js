@@ -18,13 +18,20 @@ router.post('/register', (req, res, next) => {   //as we are in the folder users
         username: req.body.username,
         password: req.body.password
     });
-
-    // Call the function Add user from /models/user
-    User.addUser(newUser, (err, user) => {
-        if(err){
-            res.json({sucess: false, msg: 'Failed to register'});
+    // Check if user already exists
+    User.getUserByUsername(newUser.username, (err, user) => {
+        if(err) throw err;
+        if(user){
+            return res.json({alreadyExists: true, msg: 'This username already exists!'});
         } else {
-            res.json({success: true, msg:'User registered'});
+            // Call the function Add user from /models/user
+            User.addUser(newUser, (err, user) => {
+                if(err){
+                    res.json({sucess: false, msg: 'Failed to register'});
+                } else {
+                    res.json({success: true, msg:'User registered'});
+                }
+            });
         }
     });
 });
@@ -42,7 +49,7 @@ router.post('/authenticate', (req, res, next) => {
         User.comparePassword(password, user.password, (err, isMatch) => {
             if(err) throw err;
             if(isMatch){
-                // const token = jwt.sign(user, config.secret, {    //not working
+                // const token = jwt.sign(user, config.secret, {    //not working anymore
                 //     expiresIn: 604800 //1 week
                 // });
                 const token = jwt.sign({ data: user }, config.secret, {
@@ -68,6 +75,21 @@ router.post('/authenticate', (req, res, next) => {
 //Profile route
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {     //To protect /profile route
     res.json({user: req.user});
+});
+
+//Change password route
+router.put('/password', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    User.changePassword(username, password, (err) => {
+        if(err){
+            res.json({success:false, msg:"Password update failed"});
+            throw err;
+        } else {
+            res.json({success:true, msg:"Password updated successfully"});
+        }
+    });
 });
 
 module.exports = router;

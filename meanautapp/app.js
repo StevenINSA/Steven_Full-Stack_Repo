@@ -29,7 +29,7 @@ mongoose.connection.on('error', (err) => {
 const app = express(); 
 
 //Port number
-const PORT = process.env.PORT || 8000; //variable for the port we are using
+const PORT = process.env.PORT || 3000; //variable for the port we are using
 
 //Session support middleware
 app.use(session({ secret: 'melody hensley is my spirit animal' }));

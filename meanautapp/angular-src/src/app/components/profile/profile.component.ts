@@ -13,13 +13,13 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router,
+    private router: Router
     ) { }
 
   // When going to the profile component, we need to load the user 
   ngOnInit(): void {
     this.authService.getProfile().subscribe(data => {
-      //console.log(data);
+      console.log(data);
       this.dataProfile = data;
       this.user = this.dataProfile.user;
     },
@@ -28,5 +28,4 @@ export class ProfileComponent implements OnInit {
        return false;
      });
   }
-
 }

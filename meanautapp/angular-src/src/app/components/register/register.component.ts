@@ -51,13 +51,19 @@ export class RegisterComponent implements OnInit {
     this.authService.registerUser(user).subscribe(data => {
       this.dataRegister = data;
 
-      if(this.dataRegister.success){
-        this._flashMessagesService.show('You are now registered', {cssClass: 'alert-success', timeout: 6000});
-        // Redirect to login page after registered
-        this.router.navigate(['/login']);
-      } else {
-        this._flashMessagesService.show('Registration went bad, please try again', {cssClass: 'alert-danger', timeout: 6000});
+      // Check if user already exists
+      if(this.dataRegister.alreadyExists){
+        this._flashMessagesService.show(this.dataRegister.msg, {cssClass: 'alert-danger', timeout: 6000});
         this.router.navigate(['/register']);
+      } else {
+        if(this.dataRegister.success){
+          this._flashMessagesService.show('You are now registered', {cssClass: 'alert-success', timeout: 6000});
+          // Redirect to login page after registered
+          this.router.navigate(['/login']);
+        } else {
+          this._flashMessagesService.show('Registration went bad, please try again', {cssClass: 'alert-danger', timeout: 6000});
+          this.router.navigate(['/register']);
+        }
       }
     });
   }

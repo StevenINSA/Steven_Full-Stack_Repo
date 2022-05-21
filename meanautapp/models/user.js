@@ -52,3 +52,15 @@ module.exports.comparePassword = function(candidatePassword, hashPassword, callb
         callback(null, isMatch);
     });
 };
+
+module.exports.changePassword = function(username, newPassword, callback){
+    bcrypt.genSalt(10, (err, salt) => {     //will hash the password. Gensalt is like a random key that will hash the password
+        bcrypt.hash(newPassword, salt, (err, hash) => {
+            if(err) throw err;
+            newPassword = hash;    //replace password by the hashed one
+            User.updateOne({username:username},{
+                password:newPassword
+            },callback);
+        });
+    });   
+};
