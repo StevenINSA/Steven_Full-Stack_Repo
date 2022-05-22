@@ -2,7 +2,7 @@
     <h1>Boxing live</h1>
     <p class="lead">Welcome to the website that provide you the schedule of all fights</p>
     <div>
-      <a class="btn btn-primary" [routerLink]="['/register']">Register</a> <a class="btn btn-default" [routerLink]="['/login']">Login</a>
+      <li *ngIf="!authService.loggedIn()"><a class="btn btn-primary" [routerLink]="['/register']">Register</a> <a class="btn btn-default" [routerLink]="['/login']">Login</a></li>
     </div>
   </div>
   
