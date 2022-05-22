@@ -1,5 +1,24 @@
 # Steven_Full-Stack_Repo
 
+To launch the project in local: 
+
+- Open two terminals, one in /meanautapp (1) and one in /meanautapp/angular-src/ (2)
+- Run npm install in (1) and (2) to bring all dependecies
+- Run npm start in (1) to launch Nodemon app on port 3000
+- Run ng serve -o in (2) to launch the frontend on http://localhost:4200/
+- You should have the app running in your browser. 
+
+To launch the project in a web server: 
+
+- just go to https://boxing-ring-lut.herokuapp.com
+
+What has been implemented:
+
+- Register an account (also check if the username already exists)
+- Dashboard route and Home page that shows the categories of boxers, last news and the next fights (empty at the moment)
+- Secured profile page that shows your username and your email, where you can also change your password
+- Show or hide buttons if you are connected or not
+
 Version used:
 
 - Angular CLI: 13.3.5
@@ -17,21 +36,3 @@ Version used:
 - @schematics/angular:            13.3.5
 - rxjs:                           7.5.5
 - typescript:                     4.6.4
-
-
-To launch the project in local: 
-
-- Open two terminals, one in /meanautapp (1) and one in /meanautapp/angular-src/ (2)
-- Run npm install in (1) and (2) to bring all dependecies
-- Run npm start in (1) to launch Nodemon app on port 3000
-- Run ng serve -o in (2) to launch the frontend on http://localhost:4200/
-- You should have the app running in your browser. 
-
-To launch the project in a web server: 
-
-- just go to https://boxing-ring-lut.herokuapp.com
-
-What has been implemented?
-
-- Register an account (also check if the username already exists)
-- To continue
