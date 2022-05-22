@@ -19,6 +19,8 @@ What has been implemented:
 - Secured profile page that shows your username and your email, where you can also change your password
 - Show or hide buttons if you are connected or not
 
+You can find the presentation video following this link: https://drive.google.com/file/d/1SaSN6yKQiELFEsezZuvdPqyEMmh0caCU/view?usp=sharing 
+
 Version used:
 
 - Angular CLI: 13.3.5
