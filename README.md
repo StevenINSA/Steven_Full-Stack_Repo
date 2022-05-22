@@ -11,7 +11,6 @@ Welcome to my Full Stack repository for the Full Stack course at LUT University.
   - MEAN-stack
 
 I created 4 branches accordingly to the course (MongoDB course only required some Terminal work). Thereby, you can check 
-all the exercices completed by navigating through the branches. I moreover created a branch dedicated to the final MEAN-stack 
-project, named MEAN_Project. 
+all the exercices completed by navigating through the branches. As the MEAN project is highly based on the MEAN course, I didn't recreated another branch for it. 
 
 Have a nice day!
