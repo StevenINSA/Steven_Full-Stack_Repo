@@ -1,5 +1,7 @@
 # Steven_Full-Stack_Repo
 
+You can find in this branch what has been done for the MEAN course. The final code is relative to the MEAN project.
+
 To launch the project in local: 
 
 - Open two terminals, one in /meanautapp (1) and one in /meanautapp/angular-src/ (2)
