@@ -1,5 +1,7 @@
 # Steven_Full-Stack_Repo
 
+Steven Gobet - 000738712
+
 Hello,
 
 Welcome to my Full Stack repository for the Full Stack course at LUT University. The course is divided into 5 sections: 
